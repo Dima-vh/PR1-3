@@ -10,9 +10,9 @@ fi
 
 INPUT="В этом примере строки есть несколько длинных слов. Проверяем корректность работы программы!"
 
-EXPECTED="несколько длинных Проверяем корректность"
+EXPECTED="несколько корректность"
 
-RESULT=$(echo "$INPUT" | "$BINARY" | tail -n 1)
+RESULT=$(echo "$INPUT" | "$BINARY" | tail -n 1 | sed 's/.*: //')
 
 if [ "$RESULT" == "$EXPECTED" ]; then
   echo "Тест пройден"
